@@ -1,0 +1,12 @@
+@startuml AppLogic
+state "AppLogic State" as GodotPlayground_AppLogic_State
+
+GodotPlayground_AppLogic_State --> GodotPlayground_AppLogic_State : RequestApplicationQuit
+GodotPlayground_AppLogic_State --> GodotPlayground_AppLogic_State : RequestFullscreenToggle
+
+GodotPlayground_AppLogic_State : OnAppFullscreenToggled() → ToggleFullscreen
+GodotPlayground_AppLogic_State : OnRequestApplicationQuit → QuitApplication
+GodotPlayground_AppLogic_State : OnRequestFullscreenToggle → ToggleFullscreen
+
+[*] --> GodotPlayground_AppLogic_State
+@enduml

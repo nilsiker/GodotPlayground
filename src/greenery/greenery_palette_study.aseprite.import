@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://hpbag81wjfca"
+path="res://.godot/imported/greenery_palette_study.aseprite-4e5935dcf2137b75a7d39c5435d67550.res"
+
+[deps]
+
+source_file="res://src/greenery/greenery_palette_study.aseprite"
+dest_files=["res://.godot/imported/greenery_palette_study.aseprite-4e5935dcf2137b75a7d39c5435d67550.res"]
+
+[params]
+

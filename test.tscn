@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwjnvl33wgr26"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf4mk"]
+albedo_color = Color(0.176983, 0.41, 0.1558, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(9.085, 0.01, 7.095)
+material = SubResource("StandardMaterial3D_mf4mk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70103, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.877071, 0.480361, 0, -0.480361, 0.877071, 0.178882, 2.18349, 3.37148)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.624856, 0.626283, -0.466182, 0.699175, -0.18316, 0.691091, 0.347432, -0.757775, -0.55233, 0, 0, 0)
+shadow_enabled = true

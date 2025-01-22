@@ -1,0 +1,4 @@
+@startuml Logic
+state "Logic State" as Woodblight_Logic_State
+[*] --> Woodblight_Logic_State
+@enduml

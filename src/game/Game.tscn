@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=4 uid="uid://cywpu6lxdjhuu"]
+
+[ext_resource type="Script" uid="uid://cv4ux82okrevc" path="res://src/game/Game.cs" id="1_1yi4v"]
+[ext_resource type="Script" uid="uid://byajw4a0rs50h" path="res://src/blackout/Blackout.cs" id="2_17plf"]
+[ext_resource type="PackedScene" uid="uid://krqe6gf1w4wq" path="res://src/ui/pause_menu/PauseMenu.tscn" id="2_n6osq"]
+[ext_resource type="TileSet" uid="uid://b0ve1llmaw3bn" path="res://src/terrain/dirt/tileset_dirt.tres" id="4_dxb18"]
+[ext_resource type="Script" uid="uid://cjgp2qp4ucaq8" path="res://addons/TileMapDual/TileMapDual.gd" id="4_oijqn"]
+[ext_resource type="Material" uid="uid://b3dpgy16vm64" path="res://src/terrain/dirt/material_dirt_layer.tres" id="5_dxb18"]
+[ext_resource type="TileSet" uid="uid://djnl6mio2sk1t" path="res://src/terrain/grass/tileset_grass.tres" id="7_bwaxr"]
+[ext_resource type="Material" uid="uid://c6qeehx41uolp" path="res://src/terrain/grass/material_grass_layer.tres" id="7_yw8km"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwaxr"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1yi4v")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Options" type="Control" parent="UI/MainMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HUD" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_n6osq")]
+visible = false
+
+[node name="Blackout" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("2_17plf")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Terrain" type="Node" parent="World"]
+
+[node name="Dirt" type="TileMapLayer" parent="World/Terrain"]
+self_modulate = Color(1, 1, 1, 0)
+tile_map_data = PackedByteArray("AAD6//z/AAACAAEAAAD6//3/AAACAAEAAAD6//7/AAACAAEAAAD6////AAACAAEAAAD6/wAAAAACAAEAAAD6/wEAAAACAAEAAAD6/wIAAAACAAEAAAD6/wMAAAACAAEAAAD7//z/AAACAAEAAAD7//3/AAACAAEAAAD7//7/AAACAAEAAAD7////AAACAAEAAAD7/wAAAAACAAEAAAD7/wEAAAACAAEAAAD7/wIAAAACAAEAAAD7/wMAAAACAAEAAAD8//z/AAACAAEAAAD8//3/AAACAAEAAAD8//7/AAACAAEAAAD8////AAACAAEAAAD8/wAAAAACAAEAAAD8/wEAAAACAAEAAAD8/wIAAAACAAEAAAD8/wMAAAACAAEAAAD9//z/AAACAAEAAAD9//3/AAACAAEAAAD9//7/AAACAAEAAAD9////AAACAAEAAAD9/wAAAAACAAEAAAD9/wEAAAACAAEAAAD9/wIAAAACAAEAAAD9/wMAAAACAAEAAAD+//z/AAACAAEAAAD+//3/AAACAAEAAAD+//7/AAACAAEAAAD+////AAACAAEAAAD+/wAAAAACAAEAAAD+/wEAAAACAAEAAAD+/wIAAAACAAEAAAD+/wMAAAACAAEAAAD///z/AAACAAEAAAD///3/AAACAAEAAAD///7/AAACAAEAAAD/////AAACAAEAAAD//wAAAAACAAEAAAD//wEAAAACAAEAAAD//wIAAAACAAEAAAD//wMAAAACAAEAAAAAAPz/AAACAAEAAAAAAP3/AAACAAEAAAAAAP7/AAACAAEAAAAAAP//AAACAAEAAAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAAAAAIAAAACAAEAAAAAAAMAAAACAAEAAAABAPz/AAACAAEAAAABAP3/AAACAAEAAAABAP7/AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAEAAAABAAEAAAACAAEAAAABAAIAAAACAAEAAAABAAMAAAACAAEAAAACAPz/AAACAAEAAAACAP3/AAACAAEAAAACAP7/AAACAAEAAAACAP//AAACAAEAAAACAAAAAAACAAEAAAACAAEAAAACAAEAAAACAAIAAAACAAEAAAACAAMAAAACAAEAAAADAPz/AAACAAEAAAADAP3/AAACAAEAAAADAP7/AAACAAEAAAADAP//AAACAAEAAAADAAAAAAACAAEAAAADAAEAAAACAAEAAAADAAIAAAACAAEAAAADAAMAAAACAAEAAAAEAPz/AAACAAEAAAAEAP3/AAACAAEAAAAEAP7/AAACAAEAAAAEAP//AAACAAEAAAAEAAAAAAACAAEAAAAEAAEAAAACAAEAAAAEAAIAAAACAAEAAAAEAAMAAAACAAEAAAA=")
+tile_set = ExtResource("4_dxb18")
+script = ExtResource("4_oijqn")
+display_material = ExtResource("5_dxb18")
+metadata/_custom_type_script = ExtResource("4_oijqn")
+
+[node name="Grass" type="TileMapLayer" parent="World/Terrain"]
+self_modulate = Color(1, 1, 1, 0)
+tile_map_data = PackedByteArray("AAD9//3/AAACAAEAAAD8//7/AAACAAEAAAD9////AAACAAEAAAAAAAAAAAACAAEAAAABAAAAAAACAAEAAAABAP//AAACAAEAAAD///7/AAACAAEAAAABAAEAAAACAAEAAAD//wIAAAACAAEAAAD+/wIAAAACAAEAAAD+/wEAAAACAAEAAAD8/wAAAAACAAEAAAD8////AAACAAEAAAD+//3/AAACAAEAAAD///3/AAACAAEAAAACAP//AAACAAEAAAACAAAAAAACAAEAAAACAAEAAAACAAEAAAAAAP3/AAACAAEAAAD7//7/AAACAAEAAAD6//7/AAACAAEAAAD6////AAACAAEAAAD6/wAAAAACAAEAAAD6/wEAAAACAAEAAAD7/wIAAAACAAEAAAD7/wMAAAACAAEAAAD8/wMAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAACAAEAAAADAAAAAAACAAEAAAADAP//AAACAAEAAAADAP7/AAACAAEAAAACAP7/AAACAAEAAAABAP7/AAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAEAAMAAAACAAEAAAADAAMAAAACAAEAAAADAAEAAAACAAEAAAA=")
+tile_set = ExtResource("7_bwaxr")
+script = ExtResource("4_oijqn")
+display_material = ExtResource("7_yw8km")
+metadata/_custom_type_script = ExtResource("4_oijqn")
+
+[node name="TileMapDual" type="TileMapLayer" parent="World/Terrain"]
+script = ExtResource("4_oijqn")
+metadata/_custom_type_script = ExtResource("4_oijqn")
+
+[node name="Player" type="CharacterBody2D" parent="World"]
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
+shape = SubResource("CircleShape2D_bwaxr")

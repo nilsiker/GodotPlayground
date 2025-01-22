@@ -1,0 +1,4 @@
+@startuml TryFadeOutButtonLogic
+state "TryFadeOutButtonLogic State" as GodotPlayground_TryFadeOutButtonLogic_State
+[*] --> GodotPlayground_TryFadeOutButtonLogic_State
+@enduml
