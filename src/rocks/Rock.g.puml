@@ -1,0 +1,4 @@
+@startuml RockLogic
+state "RockLogic State" as GodotPlayground_Rocks_RockLogic_State
+[*] --> GodotPlayground_Rocks_RockLogic_State
+@enduml

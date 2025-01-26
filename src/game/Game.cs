@@ -1,6 +1,5 @@
 namespace GodotPlayground;
 
-using System;
 using Chickensoft.AutoInject;
 using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
@@ -70,7 +69,6 @@ public partial class Game : Node2D, IGame, IProvide<IBlackoutRepo> {
 
   }
   #endregion
-
   #endregion
 
 

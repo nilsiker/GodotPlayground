@@ -1,0 +1,4 @@
+@startuml PlayerLogic
+state "PlayerLogic State" as GodotPlayground_PlayerLogic_State
+[*] --> GodotPlayground_PlayerLogic_State
+@enduml

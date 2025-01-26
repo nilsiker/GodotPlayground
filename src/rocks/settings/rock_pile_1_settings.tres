@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RockSettings" load_steps=4 format=3 uid="uid://dmyjmyih40uxr"]
+
+[ext_resource type="Texture2D" uid="uid://cv36va0pw7x3x" path="res://src/rocks/art/rock_pile_1.png" id="1_yrhno"]
+[ext_resource type="Script" uid="uid://jojp5d2rllkc" path="res://src/rocks/RockSettings.cs" id="2_7a8t7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i8bu"]
+radius = 7.0
+height = 28.0
+
+[resource]
+script = ExtResource("2_7a8t7")
+Destructible = false
+Model = ExtResource("1_yrhno")
+ModelOffset = Vector2(0, -4)
+ColliderShape = SubResource("CapsuleShape2D_6i8bu")
+ColliderRotation = 90.0
+metadata/_custom_type_script = ExtResource("2_7a8t7")

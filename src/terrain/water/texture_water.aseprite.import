@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://cpx8gw53feenh"
+path="res://.godot/imported/texture_water.aseprite-d2d8cf22d18a1dd391a4664e4cd0878c.res"
+
+[deps]
+
+source_file="res://src/terrain/water/texture_water.aseprite"
+dest_files=["res://.godot/imported/texture_water.aseprite-d2d8cf22d18a1dd391a4664e4cd0878c.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

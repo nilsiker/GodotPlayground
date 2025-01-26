@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://bgh2ju0fws5pd"
+path="res://.godot/imported/rock_pile_1.aseprite-0b456f2a88aef4c6ded7e84a704adad4.res"
+
+[deps]
+
+source_file="res://src/rocks/art/rock_pile_1.aseprite"
+dest_files=["res://.godot/imported/rock_pile_1.aseprite-0b456f2a88aef4c6ded7e84a704adad4.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

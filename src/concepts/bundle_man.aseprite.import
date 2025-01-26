@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d38u17fg7e8cc"
+path="res://.godot/imported/bundle_man.aseprite-9c3805a813f791acac4ae74acfb9fa73.res"
+
+[deps]
+
+source_file="res://src/concepts/bundle_man.aseprite"
+dest_files=["res://.godot/imported/bundle_man.aseprite-9c3805a813f791acac4ae74acfb9fa73.res"]
+
+[params]
+

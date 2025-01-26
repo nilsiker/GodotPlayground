@@ -1,0 +1,33 @@
+@startuml PlayerLogic
+state "PlayerLogic State" as GodotPlayground_PlayerLogic_State {
+  state "Alive" as GodotPlayground_PlayerLogic_State_Alive {
+    state "Attacking" as GodotPlayground_PlayerLogic_State_Alive_Attacking
+    state "Idle" as GodotPlayground_PlayerLogic_State_Alive_Idle
+    state "Moving" as GodotPlayground_PlayerLogic_State_Alive_Moving
+  }
+  state "Dead" as GodotPlayground_PlayerLogic_State_Dead
+}
+
+GodotPlayground_PlayerLogic_State_Alive --> GodotPlayground_PlayerLogic_State_Alive : Damage
+GodotPlayground_PlayerLogic_State_Alive --> GodotPlayground_PlayerLogic_State_Alive_Attacking : Attack
+GodotPlayground_PlayerLogic_State_Alive --> GodotPlayground_PlayerLogic_State_Dead : Damage
+GodotPlayground_PlayerLogic_State_Alive_Attacking --> GodotPlayground_PlayerLogic_State_Alive_Attacking : AnimationFinished
+GodotPlayground_PlayerLogic_State_Alive_Attacking --> GodotPlayground_PlayerLogic_State_Alive_Attacking : Lunge
+GodotPlayground_PlayerLogic_State_Alive_Attacking --> GodotPlayground_PlayerLogic_State_Alive_Attacking : PhysicsTick
+GodotPlayground_PlayerLogic_State_Alive_Attacking --> GodotPlayground_PlayerLogic_State_Alive_Idle : AnimationFinished
+GodotPlayground_PlayerLogic_State_Alive_Idle --> GodotPlayground_PlayerLogic_State_Alive_Idle : UpdateMovementDirection
+GodotPlayground_PlayerLogic_State_Alive_Idle --> GodotPlayground_PlayerLogic_State_Alive_Moving : UpdateMovementDirection
+GodotPlayground_PlayerLogic_State_Alive_Moving --> GodotPlayground_PlayerLogic_State_Alive_Idle : PhysicsTick
+GodotPlayground_PlayerLogic_State_Alive_Moving --> GodotPlayground_PlayerLogic_State_Alive_Moving : PhysicsTick
+GodotPlayground_PlayerLogic_State_Alive_Moving --> GodotPlayground_PlayerLogic_State_Alive_Moving : UpdateMovementDirection
+
+GodotPlayground_PlayerLogic_State : OutputSpriteFlipped() → SpriteFlipped
+GodotPlayground_PlayerLogic_State_Alive_Attacking : OnEnter → AnimationChanged
+GodotPlayground_PlayerLogic_State_Alive_Attacking : OnLunge → VelocityUpdated
+GodotPlayground_PlayerLogic_State_Alive_Attacking : OnPhysicsTick → Moved, VelocityUpdated
+GodotPlayground_PlayerLogic_State_Alive_Idle : OnEnter → AnimationChanged
+GodotPlayground_PlayerLogic_State_Alive_Moving : OnEnter → AnimationChanged
+GodotPlayground_PlayerLogic_State_Alive_Moving : OnPhysicsTick → Moved, VelocityUpdated
+
+[*] --> GodotPlayground_PlayerLogic_State_Alive_Idle
+@enduml

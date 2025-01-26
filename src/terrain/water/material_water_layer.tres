@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dxy0x2qgmt7qn"]
+
+[ext_resource type="Shader" uid="uid://u4hr8ayftrwg" path="res://src/terrain/terrain_layer.gdshader" id="1_4wq8x"]
+[ext_resource type="Texture2D" uid="uid://bokgoe1lcle8b" path="res://src/terrain/water/texture_water1.png" id="2_p8cev"]
+[ext_resource type="Texture2D" uid="uid://ljoxvosseib4" path="res://src/terrain/water/texture_water2.png" id="3_qbl2o"]
+[ext_resource type="Texture2D" uid="uid://bajysp071nmfq" path="res://src/terrain/water/texture_water3.png" id="4_5nnlg"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_v7r7g"]
+frames = 3
+speed_scale = 5.0
+frame_0/texture = ExtResource("2_p8cev")
+frame_1/texture = ExtResource("3_qbl2o")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_5nnlg")
+frame_2/duration = 1.0
+
+[resource]
+shader = ExtResource("1_4wq8x")
+shader_parameter/fill_texture = SubResource("AnimatedTexture_v7r7g")
+shader_parameter/scale = Vector2(64, 64)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/min_alpha = 0.1
+shader_parameter/mask_color = Color(1, 0, 0, 1)
+shader_parameter/color_match_threshold = 0.8

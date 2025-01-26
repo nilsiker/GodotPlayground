@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://bi4lpdntl7qca"
+path="res://.godot/imported/tileset_water.aseprite-9c25a5880e4a2e3788105c7515fab3ce.res"
+
+[deps]
+
+source_file="res://src/terrain/water/tileset_water.aseprite"
+dest_files=["res://.godot/imported/tileset_water.aseprite-9c25a5880e4a2e3788105c7515fab3ce.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false
