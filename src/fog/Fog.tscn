@@ -8,7 +8,7 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8i5je"]
 noise_type = 5
 frequency = 0.007
-offset = Vector3(68436, 13713, 69547.9)
+offset = Vector3(76056.5, 15201, 77168.4)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2d5qb"]
 in_3d_space = true

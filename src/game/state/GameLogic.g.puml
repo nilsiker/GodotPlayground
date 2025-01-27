@@ -1,10 +1,10 @@
 @startuml GameLogic
 state "GameLogic State" as GodotPlayground_GameLogic_State {
+  state "LeavingGame" as GodotPlayground_GameLogic_State_LeavingGame
   state "EnteringGame" as GodotPlayground_GameLogic_State_EnteringGame
   state "InGame" as GodotPlayground_GameLogic_State_InGame
-  state "InMainMenu" as GodotPlayground_GameLogic_State_InMainMenu
-  state "LeavingGame" as GodotPlayground_GameLogic_State_LeavingGame
   state "LeavingMainMenu" as GodotPlayground_GameLogic_State_LeavingMainMenu
+  state "InMainMenu" as GodotPlayground_GameLogic_State_InMainMenu
   state "Loading" as GodotPlayground_GameLogic_State_Loading
 }
 

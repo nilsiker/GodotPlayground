@@ -1,0 +1,4 @@
+@startuml TerrainLogic
+state "TerrainLogic State" as GodotPlayground_TerrainLogic_State
+[*] --> GodotPlayground_TerrainLogic_State
+@enduml

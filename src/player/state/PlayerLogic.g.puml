@@ -1,9 +1,9 @@
 @startuml PlayerLogic
 state "PlayerLogic State" as GodotPlayground_PlayerLogic_State {
   state "Alive" as GodotPlayground_PlayerLogic_State_Alive {
-    state "Attacking" as GodotPlayground_PlayerLogic_State_Alive_Attacking
     state "Idle" as GodotPlayground_PlayerLogic_State_Alive_Idle
     state "Moving" as GodotPlayground_PlayerLogic_State_Alive_Moving
+    state "Attacking" as GodotPlayground_PlayerLogic_State_Alive_Attacking
   }
   state "Dead" as GodotPlayground_PlayerLogic_State_Dead
 }
