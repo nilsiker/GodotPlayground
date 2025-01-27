@@ -1,6 +1,5 @@
 namespace GodotPlayground;
 
-using System;
 using Chickensoft.AutoInject;
 using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
@@ -20,6 +19,7 @@ public partial class Player : CharacterBody2D, IPlayer {
   #endregion
 
   #region Dependencies
+  [Dependency] private ICameraRepo CameraRepo => this.DependOn<ICameraRepo>();
   #endregion
 
   #region State
@@ -47,7 +47,9 @@ public partial class Player : CharacterBody2D, IPlayer {
       LastVelocity = Vector2.Zero
     });
 
-    Logic.Start();
+    Logic.Set(CameraRepo);
+
+    Logic.Input(new PlayerLogic.Input.GrabCamera(this));
   }
 
 
@@ -65,7 +67,6 @@ public partial class Player : CharacterBody2D, IPlayer {
     Velocity = velocity;
     FootstepParticles.Direction = -velocity;
   }
-
 
   private void OnOutputMove() => MoveAndSlide();
   private void OnOutputSpriteFlipped(bool isFlipped) => Model.FlipH = isFlipped;

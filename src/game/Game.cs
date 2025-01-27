@@ -5,20 +5,26 @@ using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
 using Godot;
 
-public interface IGame : INode2D { }
+public interface IGame : INode2D,
+  IProvide<IBlackoutRepo>,
+  IProvide<IGameRepo>,
+  IProvide<ICameraRepo>;
 
 [Meta(typeof(IAutoNode))]
-public partial class Game : Node2D, IGame, IProvide<IBlackoutRepo> {
+public partial class Game : Node2D, IGame {
   #region Exports
   #endregion
 
   #region Nodes
-  [Node]
-  private Blackout Blackout { get; set; } = default!;
+  [Node] private Blackout Blackout { get; set; } = default!;
+  [Node] private ICamera GameCamera { get; set; } = default!;
+  [Node] private IPlayer Player { get; set; } = default!;
   #endregion
 
   #region Provisions
   IBlackoutRepo IProvide<IBlackoutRepo>.Value() => Blackout.BlackoutRepo;
+  IGameRepo IProvide<IGameRepo>.Value() => GameRepo;
+  ICameraRepo IProvide<ICameraRepo>.Value() => GameCamera.CameraRepo;
   #endregion
 
   #region Dependencies
@@ -26,6 +32,7 @@ public partial class Game : Node2D, IGame, IProvide<IBlackoutRepo> {
   #endregion
 
   #region State
+  private IGameRepo GameRepo { get; set; } = default!;
   private GameLogic Logic { get; set; } = default!;
   private GameLogic.IBinding Binding { get; set; } = default!;
   #endregion
@@ -36,7 +43,10 @@ public partial class Game : Node2D, IGame, IProvide<IBlackoutRepo> {
   public void OnResolved() {
     Binding = Logic.Bind();
 
+    GameRepo = new GameRepo();
+
     Logic.Set(Blackout.BlackoutRepo);
+    Logic.Set(GameRepo);
 
     // Bind functions to state outputs here
     Binding
@@ -50,7 +60,7 @@ public partial class Game : Node2D, IGame, IProvide<IBlackoutRepo> {
     this.Provide();
     Logic.Start();
   }
-
+  #endregion
 
   #region Input Callbacks
   #endregion
@@ -66,12 +76,8 @@ public partial class Game : Node2D, IGame, IProvide<IBlackoutRepo> {
   private static void OnOutputChangeScene(string scenePath) {
     var scene = ResourceLoader.LoadThreadedGet(scenePath) as PackedScene;
     GD.Print(scene);
-
   }
   #endregion
-  #endregion
-
-
 
   #region Godot Lifecycle
   public override void _Notification(int what) => this.Notify(what);

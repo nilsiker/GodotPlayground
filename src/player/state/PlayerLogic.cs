@@ -1,4 +1,6 @@
 namespace GodotPlayground;
+
+using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
 using Chickensoft.LogicBlocks;
 using Godot;
@@ -19,6 +21,7 @@ public partial class PlayerLogic
     public record struct Attack;
     public record struct Lunge;
     public record struct AnimationFinished(StringName AnimationName);
+    public record struct GrabCamera(INode2D Self);
   }
 
   public static class Output {

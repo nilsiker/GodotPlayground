@@ -1,0 +1,16 @@
+@startuml CameraLogic
+state "CameraLogic State" as GodotPlayground_CameraLogic_State {
+  state "Following" as GodotPlayground_CameraLogic_State_Following
+}
+
+GodotPlayground_CameraLogic_State --> GodotPlayground_CameraLogic_State_Following : Follow
+GodotPlayground_CameraLogic_State_Following --> GodotPlayground_CameraLogic_State : Unfollow
+GodotPlayground_CameraLogic_State_Following --> GodotPlayground_CameraLogic_State_Following : PhysicsTick
+GodotPlayground_CameraLogic_State_Following --> GodotPlayground_CameraLogic_State_Following : Tick
+
+GodotPlayground_CameraLogic_State : OnCameraShakeRequested() → Shaken
+GodotPlayground_CameraLogic_State_Following : OnPhysicsTick → TargetGlobalPositionUpdated
+GodotPlayground_CameraLogic_State_Following : OnTick → TargetGlobalPositionUpdated
+
+[*] --> GodotPlayground_CameraLogic_State
+@enduml

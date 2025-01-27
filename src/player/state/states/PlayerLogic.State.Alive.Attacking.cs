@@ -24,6 +24,8 @@ public partial class PlayerLogic {
         }
 
         public Transition On(in Input.Lunge input) {
+          Get<ICameraRepo>().RequestShake(2, 0.1f, 20);
+
           var data = Get<Data>();
           data.LastVelocity = Inputs.GetMoveInput() * data.Speed * 1f;
           Output(new Output.VelocityUpdated(data.LastVelocity));
